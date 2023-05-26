@@ -1,5 +1,5 @@
 //
-//  GeneratorViewController.swift
+//  MainViewController.swift
 //  ImageGenerator
 //
 //  Created by Viktoriya on 26.05.2023.
@@ -7,33 +7,36 @@
 
 import UIKit
 
-class GeneratorViewController: UIViewController{//, GeneratorView {
-    @IBOutlet weak var requestTextField: UITextField!
-    @IBOutlet weak var imageView: UIImageView!
+class MainViewController: UIViewController {
     
-    //var presenter: GeneratorPresenter!
+    @IBOutlet private weak var requestTextField: UITextField?
+    @IBOutlet private weak var imageView: UIImageView?
+    
+    var presenter: MainPresenter?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       // presenter = GeneratorPresenter(view: self, imageService: ImageService())
+       //presenter = MainPresenterImpl(view: self, coordinator: AppCoordinator, favoritesService: FavoritesService)
     }
     
     @IBAction func confirmButtonTapped(_ sender: UIButton) {
-        guard let request = requestTextField.text else {
+        guard let request = requestTextField?.text else {
             return
         }
-       // presenter.fetchImage(with: request)
+        presenter?.generateImage(withText: request)
     }
     
     @IBAction func addToFavoritesButtonTapped(_ sender: UIButton) {
-        guard let image = imageView.image else {
+        guard let image = imageView?.image else {
             return
         }
-       // presenter.addToFavorites(image)
+        presenter?.addToFavorites(image)
     }
-    
+}
+
+extension MainViewController: MainViewProtocol {
     func displayImage(_ image: UIImage) {
-        imageView.image = image
+        imageView?.image = image
     }
     
     func displayError(_ message: String) {

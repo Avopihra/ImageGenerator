@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct Favorite {
-    let image: UIImage?
+struct Favorite: Codable {
+    let data: Data?
     let request: String
 }

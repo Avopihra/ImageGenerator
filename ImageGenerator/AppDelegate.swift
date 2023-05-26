@@ -11,17 +11,13 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        self.setInitialViewController()
-        return true
-    }
+    fileprivate var coordinator: AppCoordinator?
     
-// MARK: - Set Initial View Controller
-    private func setInitialViewController() {
-        let controller = GeneratorViewController.create()
-        self.window?.rootViewController = controller
-        self.window?.makeKeyAndVisible()
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        window = UIWindow(frame: UIScreen.main.bounds)
+        coordinator = AppCoordinator(window: window ?? UIWindow())
+        coordinator?.start()
+        return true
     }
 }
 
