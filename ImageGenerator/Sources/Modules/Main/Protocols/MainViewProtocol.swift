@@ -9,7 +9,7 @@ import UIKit
 
 //MARK: - View Protocol
 
-protocol MainViewProtocol: AnyObject {
+public protocol MainViewProtocol: AnyObject {
     func displayImage(_ image: UIImage)
     func displayTimer(_ seconds: Int)
     func displayError(_ message: String)
@@ -18,7 +18,7 @@ protocol MainViewProtocol: AnyObject {
 //MARK: - Presenter Protocol
 
 protocol MainPresenter: AnyObject {
-    init(view: MainViewProtocol, data: ImageData)
+    init(view: MainViewProtocol)
     func generateImage(withText text: String)
     func addToFavorites(_ image: UIImage)
 }

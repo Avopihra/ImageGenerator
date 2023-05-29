@@ -39,7 +39,28 @@
 		CEDAA7B42A23D5EF00EEC5BD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CEDAA7B32A23D5EF00EEC5BD /* Localizable.strings */; };
 		CEDAA7B62A24684A00EEC5BD /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDAA7B52A24684A00EEC5BD /* CacheManager.swift */; };
 		CEDAA7B92A2468FA00EEC5BD /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = CEDAA7B82A2468FA00EEC5BD /* SQLite */; };
+		CEDAA7C22A24752F00EEC5BD /* ImageGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDAA7C12A24752F00EEC5BD /* ImageGeneratorTests.swift */; };
+		CEDAA7C92A24758D00EEC5BD /* MainPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDAA7C82A24758D00EEC5BD /* MainPresenterTests.swift */; };
+		CEDAA7CA2A24763700EEC5BD /* MainViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDAA7882A20ACC500EEC5BD /* MainViewProtocol.swift */; };
+		CEDAA7CB2A24764C00EEC5BD /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDAA78C2A20AE4200EEC5BD /* ImageService.swift */; };
+		CEDAA7CC2A24765C00EEC5BD /* FavoritesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDAA78E2A20AFE300EEC5BD /* FavoritesService.swift */; };
+		CEDAA7CD2A24767700EEC5BD /* ImageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDAA7902A21C39500EEC5BD /* ImageData.swift */; };
+		CEDAA7CE2A24768D00EEC5BD /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F90CA2A207FD000BFAD0F /* MainPresenter.swift */; };
+		CEDAA7CF2A247CAD00EEC5BD /* RequestCounterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDAA7A12A2300CC00EEC5BD /* RequestCounterManager.swift */; };
+		CEDAA7D02A247CC200EEC5BD /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDAA79B2A21F5B100EEC5BD /* Common.swift */; };
+		CEDAA7D12A247CDD00EEC5BD /* ReferenceGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0755712A2090BE00114E6B /* ReferenceGenerator.swift */; };
+		CEDAA7D22A247CEA00EEC5BD /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDAA7B52A24684A00EEC5BD /* CacheManager.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CEDAA7C32A24752F00EEC5BD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE8F908C2A20593C00BFAD0F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CE8F90932A20593C00BFAD0F;
+			remoteInfo = ImageGenerator;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		CE0755712A2090BE00114E6B /* ReferenceGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceGenerator.swift; sourceTree = "<group>"; };
@@ -76,6 +97,9 @@
 		CEDAA7B32A23D5EF00EEC5BD /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		CEDAA7B52A24684A00EEC5BD /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
 		CEDAA7BA2A24692500EEC5BD /* ImageGenerator-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ImageGenerator-Bridging-Header.h"; sourceTree = "<group>"; };
+		CEDAA7BF2A24752F00EEC5BD /* ImageGeneratorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImageGeneratorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEDAA7C12A24752F00EEC5BD /* ImageGeneratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGeneratorTests.swift; sourceTree = "<group>"; };
+		CEDAA7C82A24758D00EEC5BD /* MainPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +108,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEDAA7B92A2468FA00EEC5BD /* SQLite in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CEDAA7BC2A24752F00EEC5BD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				CE8F90962A20593C00BFAD0F /* ImageGenerator */,
+				CEDAA7C02A24752F00EEC5BD /* ImageGeneratorTests */,
 				CE8F90952A20593C00BFAD0F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -128,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				CE8F90942A20593C00BFAD0F /* ImageGenerator.app */,
+				CEDAA7BF2A24752F00EEC5BD /* ImageGeneratorTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -330,6 +363,15 @@
 			path = Localization;
 			sourceTree = "<group>";
 		};
+		CEDAA7C02A24752F00EEC5BD /* ImageGeneratorTests */ = {
+			isa = PBXGroup;
+			children = (
+				CEDAA7C12A24752F00EEC5BD /* ImageGeneratorTests.swift */,
+				CEDAA7C82A24758D00EEC5BD /* MainPresenterTests.swift */,
+			);
+			path = ImageGeneratorTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -353,6 +395,24 @@
 			productReference = CE8F90942A20593C00BFAD0F /* ImageGenerator.app */;
 			productType = "com.apple.product-type.application";
 		};
+		CEDAA7BE2A24752F00EEC5BD /* ImageGeneratorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CEDAA7C72A24752F00EEC5BD /* Build configuration list for PBXNativeTarget "ImageGeneratorTests" */;
+			buildPhases = (
+				CEDAA7BB2A24752F00EEC5BD /* Sources */,
+				CEDAA7BC2A24752F00EEC5BD /* Frameworks */,
+				CEDAA7BD2A24752F00EEC5BD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CEDAA7C42A24752F00EEC5BD /* PBXTargetDependency */,
+			);
+			name = ImageGeneratorTests;
+			productName = ImageGeneratorTests;
+			productReference = CEDAA7BF2A24752F00EEC5BD /* ImageGeneratorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -365,6 +425,10 @@
 				TargetAttributes = {
 					CE8F90932A20593C00BFAD0F = {
 						CreatedOnToolsVersion = 14.1;
+					};
+					CEDAA7BE2A24752F00EEC5BD = {
+						CreatedOnToolsVersion = 14.1;
+						TestTargetID = CE8F90932A20593C00BFAD0F;
 					};
 				};
 			};
@@ -385,6 +449,7 @@
 			projectRoot = "";
 			targets = (
 				CE8F90932A20593C00BFAD0F /* ImageGenerator */,
+				CEDAA7BE2A24752F00EEC5BD /* ImageGeneratorTests */,
 			);
 		};
 /* End PBXProject section */
@@ -400,6 +465,13 @@
 				CE8F90A12A20593D00BFAD0F /* Assets.xcassets in Resources */,
 				CEDAA7932A21DCEF00EEC5BD /* MainView.xib in Resources */,
 				CEDAA7AF2A2373AC00EEC5BD /* FavoriteCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CEDAA7BD2A24752F00EEC5BD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,7 +510,33 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CEDAA7BB2A24752F00EEC5BD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEDAA7CC2A24765C00EEC5BD /* FavoritesService.swift in Sources */,
+				CEDAA7CA2A24763700EEC5BD /* MainViewProtocol.swift in Sources */,
+				CEDAA7CF2A247CAD00EEC5BD /* RequestCounterManager.swift in Sources */,
+				CEDAA7D12A247CDD00EEC5BD /* ReferenceGenerator.swift in Sources */,
+				CEDAA7CB2A24764C00EEC5BD /* ImageService.swift in Sources */,
+				CEDAA7D02A247CC200EEC5BD /* Common.swift in Sources */,
+				CEDAA7D22A247CEA00EEC5BD /* CacheManager.swift in Sources */,
+				CEDAA7C22A24752F00EEC5BD /* ImageGeneratorTests.swift in Sources */,
+				CEDAA7C92A24758D00EEC5BD /* MainPresenterTests.swift in Sources */,
+				CEDAA7CE2A24768D00EEC5BD /* MainPresenter.swift in Sources */,
+				CEDAA7CD2A24767700EEC5BD /* ImageData.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CEDAA7C42A24752F00EEC5BD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CE8F90932A20593C00BFAD0F /* ImageGenerator */;
+			targetProxy = CEDAA7C32A24752F00EEC5BD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		CE8F90A22A20593D00BFAD0F /* LaunchScreen.storyboard */ = {
@@ -633,6 +731,50 @@
 			};
 			name = Release;
 		};
+		CEDAA7C52A24752F00EEC5BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3Y42CSS8U6;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Viktoriya.ImageGeneratorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ImageGenerator.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ImageGenerator";
+			};
+			name = Debug;
+		};
+		CEDAA7C62A24752F00EEC5BD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3Y42CSS8U6;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Viktoriya.ImageGeneratorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ImageGenerator.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ImageGenerator";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -650,6 +792,15 @@
 			buildConfigurations = (
 				CE8F90A92A20593D00BFAD0F /* Debug */,
 				CE8F90AA2A20593D00BFAD0F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CEDAA7C72A24752F00EEC5BD /* Build configuration list for PBXNativeTarget "ImageGeneratorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CEDAA7C52A24752F00EEC5BD /* Debug */,
+				CEDAA7C62A24752F00EEC5BD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

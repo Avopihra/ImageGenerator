@@ -15,9 +15,8 @@ protocol ModuleBuilderProtocol {
 
 class ModuleBuilder: ModuleBuilderProtocol {
     static func createMainModule() -> UIViewController {
-        let data = ImageData(data: Data(), request: "", isFavorite: false)
         let view = MainViewController()
-        let presenter = MainPresenterImpl(view: view, data: data)
+        let presenter = MainPresenterImpl(view: view)
         view.setup(presenter: presenter)
         return view
     }

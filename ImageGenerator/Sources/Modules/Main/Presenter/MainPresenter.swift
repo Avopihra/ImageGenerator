@@ -12,21 +12,19 @@ class MainPresenterImpl: MainPresenter {
     //MARK: - Properties
 
     let view: MainViewProtocol
-    let imageData: ImageData
+    var imageService: ImageService
+    var favoritesService: FavoritesService
+    var request: String?
     
     //MARK: - Private Properties
 
-    private let imageService: ImageService
-    private let favoritesService: FavoritesService
-    private let requestCounter: RequestCounterManager
+     let requestCounter: RequestCounterManager
     private var generatedImage: UIImage?
-    private var request: String?
         
     //MARK: - Init
 
-    required init(view: MainViewProtocol, data: ImageData) {
+    required init(view: MainViewProtocol) {
         self.view = view
-        self.imageData = data
         self.imageService = ImageService()
         self.favoritesService = FavoritesService()
         self.requestCounter = RequestCounterManager()
