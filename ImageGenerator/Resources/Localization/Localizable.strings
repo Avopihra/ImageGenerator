@@ -1,0 +1,20 @@
+/* 
+  Localizable.strings
+  ImageGenerator
+
+  Created by Viktoriya on 29.05.2023.
+  
+*/
+"Main.search" = "Search";
+"Main.exceedingTheLimit" = "Limit exceeded. Try after %@ sec";
+"Main.text" = "Text:";
+"Main.generate" = "Generate";
+"Main.enterText" = "Enter text";
+"Main.alreadyFavorites" = "This image is already in favorites";
+
+"Favorite.favorites" = "Favorites";
+
+"Alert.alreadySend" = "You have already sent this request";
+"Alert.ok" = "OK";
+"Alert.wait" = "Please wait ...";
+"Alert.invalidRequest" = "invalid request. Check for extraneous characters";

@@ -7,68 +7,39 @@
 
 import UIKit
 
+//MARK: - Service Protocol
+
 protocol FavoritesServiceProtocol {
-    
-    func addFavorite(_ item: Favorite)
-    
-    func removeFavorite(atIndex index: Int)
-    
-    func getFavorites() -> [Favorite]
-    
-    func saveFavorites()
+    func addToFavorites(image: UIImage, request: String)
+    func removeFavorite(at index: Int)
+    func getFavorites() -> [ImageData]
+    func saveFavorites(_ favorites: [ImageData])
 }
 
+protocol FavoriteViewDelegate {
+    func updateFavoritesList(_ favorites: [ImageData])
+}
+
+// MARK: - Service 
 class FavoritesService: FavoritesServiceProtocol {
     
-    private var favorites: [Favorite] = []
-    private let maxFavoritesCount = 15
+    private var favorites: [ImageData] = []
+    private let maxFavoritesCount = 10
     private let favoritesKey = "Favorites"
     
-    func addFavorite(_ item: Favorite) {
-        if favorites.count >= maxFavoritesCount {
-            favorites.removeFirst()
-        }
-        favorites.append(item)
-        saveFavorites()
-    }
+    var delegate: FavoriteViewDelegate?
     
-    func removeFavorite(atIndex index: Int) {
+    func removeFavorite(at index: Int) {
+        var favorites = getFavorites()
         favorites.remove(at: index)
-        saveFavorites()
-    }
-    
-    func saveFavorites() {
-        // Implement your favorite items persistence logic here
-    }
-    
-    func getCachedImage(for request: String) -> UIImage? {
-        
-        if let data = UserDefaults.standard.data(forKey: favoritesKey + request),
-           let image = UIImage(data: data) {
-            return image
-        }
-        
-        return nil
-    }
-    
-    func getLastGeneratedImage() -> UIImage? {
-        
-        if let data = UserDefaults.standard.data(forKey: favoritesKey + "lastGeneratedImage"),
-           let image = UIImage(data: data) {
-            return image
-        }
-        
-        return nil
-    }
-    
-    func getLastGeneratedRequest() -> String? {
-        return UserDefaults.standard.string(forKey: favoritesKey + "lastGeneratedRequest")
+        saveFavorites(favorites)
     }
     
     func addToFavorites(image: UIImage, request: String) {
         var favorites = getFavorites()
         if favorites.count >= maxFavoritesCount {
             removeOldestFavorite()
+            favorites = getFavorites()
         }
         
         let data = image.jpegData(compressionQuality: 1.0)
@@ -78,38 +49,53 @@ class FavoritesService: FavoritesServiceProtocol {
         UserDefaults.standard.set(data, forKey: favoritesKey + "lastGeneratedImage")
         UserDefaults.standard.set(request, forKey: favoritesKey + "lastGeneratedRequest")
         
-        favorites.append(Favorite(data: data, request: request))
-        saveFavorites(favorites)
+        let newFavorite = ImageData(data: data, request: request, isFavorite: true)
+        
+        // Check if the new favorite already exists in favorites
+        if !favorites.contains(where: { $0.data == data && $0.request == request }) {
+            favorites.append(newFavorite)
+            self.saveFavorites(favorites)
+            self.delegate?.updateFavoritesList(favorites)
+        }
     }
     
-        func getFavorites() -> [Favorite] {
+    func getFavorites() -> [ImageData] {
         guard let favoritesData = UserDefaults.standard.data(forKey: favoritesKey) else {
             return []
         }
         
         let decoder = JSONDecoder()
-        if let favorites = try? decoder.decode([Favorite].self, from: favoritesData) {
+        if let favorites = try? decoder.decode([ImageData].self, from: favoritesData) {
             return favorites
         }
         
         return []
     }
     
-    private func removeOldestFavorite() {
-        var favorites = getFavorites()
-        if let oldestFavorite = favorites.first {
-            UserDefaults.standard.removeObject(forKey: favoritesKey + oldestFavorite.request)
-        }
-        
-        favorites.removeFirst()
-        saveFavorites(favorites)
-    }
-    
-    func saveFavorites(_ favorites: [Favorite]) {
+    func saveFavorites(_ favorites: [ImageData]) {
         let encoder = JSONEncoder()
         if let favoritesData = try? encoder.encode(favorites) {
             UserDefaults.standard.set(favoritesData, forKey: favoritesKey)
         }
     }
     
+    func isAlreadyFavorite(_ request: String) -> Bool {
+        let favorites = getFavorites()
+        if !favorites.contains(where: { $0.request == request }) {
+            return false
+        }
+        return true
+    }
+    
+    //MARK: - Private Methods
+    
+    private func removeOldestFavorite() {
+        var favorites = getFavorites()
+        if let oldestFavorite = favorites.first {
+            UserDefaults.standard.removeObject(forKey: favoritesKey + oldestFavorite.request)
+        }
+        favorites.removeFirst()
+        self.saveFavorites(favorites)
+        self.delegate?.updateFavoritesList(favorites)
+    }
 }

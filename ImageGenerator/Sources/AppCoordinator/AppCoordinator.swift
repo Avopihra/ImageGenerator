@@ -8,9 +8,12 @@
 import UIKit
 
 class AppCoordinator {
+    
+    //MARK: - Private Properties
+    
     private let window: UIWindow
-    private let imageService: ImageServiceProtocol?
-    private let favoritesService: FavoritesServiceProtocol?
+    private let imageService: ImageService
+    private let favoritesService: FavoritesService
     
     init(window: UIWindow) {
         self.window = window
@@ -18,16 +21,18 @@ class AppCoordinator {
         self.favoritesService = FavoritesService()
     }
     
+    //MARK: - Build Modules
+
     func start() {
         let tabBarController = UITabBarController()
         
         // Main Module
-        let mainViewController = MainViewController.create()
+        let mainViewController = ModuleBuilder.createMainModule()
         let mainNavigationController = UINavigationController(rootViewController: mainViewController)
         mainNavigationController.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
         
         // Favorites Module
-        let favoritesViewController = FavoritesViewController.create()
+        let favoritesViewController = ModuleBuilder.createFavoritesModule()
         let favoritesNavigationController = UINavigationController(rootViewController: favoritesViewController)
         favoritesNavigationController.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
         

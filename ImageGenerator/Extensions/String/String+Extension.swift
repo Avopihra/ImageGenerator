@@ -20,3 +20,9 @@ extension String {
         return self[..<self.index(at: range.upperBound)]
     }
 }
+
+extension String {
+    func containsWhitespaceAndNewlines() -> Bool {
+        return rangeOfCharacter(from: .whitespacesAndNewlines) != nil
+    }
+}
