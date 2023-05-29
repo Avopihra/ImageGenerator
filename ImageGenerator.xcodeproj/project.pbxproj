@@ -37,6 +37,8 @@
 		CEDAA7AE2A2373AC00EEC5BD /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDAA7AC2A2373AC00EEC5BD /* FavoriteCell.swift */; };
 		CEDAA7AF2A2373AC00EEC5BD /* FavoriteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEDAA7AD2A2373AC00EEC5BD /* FavoriteCell.xib */; };
 		CEDAA7B42A23D5EF00EEC5BD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CEDAA7B32A23D5EF00EEC5BD /* Localizable.strings */; };
+		CEDAA7B62A24684A00EEC5BD /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDAA7B52A24684A00EEC5BD /* CacheManager.swift */; };
+		CEDAA7B92A2468FA00EEC5BD /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = CEDAA7B82A2468FA00EEC5BD /* SQLite */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +74,8 @@
 		CEDAA7AC2A2373AC00EEC5BD /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
 		CEDAA7AD2A2373AC00EEC5BD /* FavoriteCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteCell.xib; sourceTree = "<group>"; };
 		CEDAA7B32A23D5EF00EEC5BD /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		CEDAA7B52A24684A00EEC5BD /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
+		CEDAA7BA2A24692500EEC5BD /* ImageGenerator-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ImageGenerator-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEDAA7B92A2468FA00EEC5BD /* SQLite in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,6 +141,7 @@
 				CE8F90972A20593C00BFAD0F /* AppDelegate.swift */,
 				CE8F90A52A20593D00BFAD0F /* Info.plist */,
 				CE0755792A20AAC200114E6B /* Resources */,
+				CEDAA7BA2A24692500EEC5BD /* ImageGenerator-Bridging-Header.h */,
 			);
 			path = ImageGenerator;
 			sourceTree = "<group>";
@@ -293,6 +299,7 @@
 				CEDAA7A12A2300CC00EEC5BD /* RequestCounterManager.swift */,
 				CEDAA79D2A22058A00EEC5BD /* Vibration.swift */,
 				CEDAA7A92A235D9300EEC5BD /* AlertManager.swift */,
+				CEDAA7B52A24684A00EEC5BD /* CacheManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -339,6 +346,9 @@
 			dependencies = (
 			);
 			name = ImageGenerator;
+			packageProductDependencies = (
+				CEDAA7B82A2468FA00EEC5BD /* SQLite */,
+			);
 			productName = ImageGenerator;
 			productReference = CE8F90942A20593C00BFAD0F /* ImageGenerator.app */;
 			productType = "com.apple.product-type.application";
@@ -367,6 +377,9 @@
 				Base,
 			);
 			mainGroup = CE8F908B2A20593C00BFAD0F;
+			packageReferences = (
+				CEDAA7B72A2468FA00EEC5BD /* XCRemoteSwiftPackageReference "SQLite.swift" */,
+			);
 			productRefGroup = CE8F90952A20593C00BFAD0F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -408,6 +421,7 @@
 				CEDAA7AA2A235D9300EEC5BD /* AlertManager.swift in Sources */,
 				CE8F90C72A207E0D00BFAD0F /* AppCoordinator.swift in Sources */,
 				CE8F90BC2A2060F600BFAD0F /* MainViewController.swift in Sources */,
+				CEDAA7B62A24684A00EEC5BD /* CacheManager.swift in Sources */,
 				CEDAA7912A21C39500EEC5BD /* ImageData.swift in Sources */,
 				CE8F90BE2A20610C00BFAD0F /* FavoritesViewController.swift in Sources */,
 				CEDAA7A42A233FE100EEC5BD /* TouchableButton.swift in Sources */,
@@ -494,6 +508,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "ImageGenerator/ImageGenerator-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -640,6 +655,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CEDAA7B72A2468FA00EEC5BD /* XCRemoteSwiftPackageReference "SQLite.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/stephencelis/SQLite.swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CEDAA7B82A2468FA00EEC5BD /* SQLite */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CEDAA7B72A2468FA00EEC5BD /* XCRemoteSwiftPackageReference "SQLite.swift" */;
+			productName = SQLite;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CE8F908C2A20593C00BFAD0F /* Project object */;
 }
